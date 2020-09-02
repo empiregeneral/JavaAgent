@@ -11,6 +11,7 @@ JavaAgent的一款基于Byte Buddy和javassit开发，统计Java应用运行时�
 java -javaagent:C:\empiregeneral.github\JavaAgent\target\JavaAgent-1.0-RELEASE.jar=cn.pintia.zjo.practice -cp practice.in.java.jar cn.pintial.zjo.practice.problem1146.Main < TestCases_1146.txt
 ```
 运行完成之后打印出调用链和消耗的时间信息：
+
 init: 262144KB   max: 3708416KB  used: 32855KB   committed: 251392KB     use rate: 13%
 init: 2496KB     max: 0KB        used: 14613KB   committed: 15232KB      use rate: 95%
 
