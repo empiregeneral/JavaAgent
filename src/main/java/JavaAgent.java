@@ -5,9 +5,11 @@ import net.bytebuddy.dynamic.DynamicType;
 import net.bytebuddy.utility.JavaModule;
 import plugin.IPlugin;
 import plugin.InterceptPoint;
-import plugin.PluginFactory;
+import plugin.jvm.JvmPlugin;
+import plugin.link.LinkPlugin;
 
 import java.lang.instrument.Instrumentation;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -16,6 +18,8 @@ import java.util.List;
  * java -javaagent:
  */
 public class JavaAgent {
+    private static List<IPlugin> plugins = new ArrayList<>();
+
     //JVM 首先尝试在代理类上调用以下方法
     public static void premain(String agentArgs, Instrumentation inst) {
 
@@ -23,8 +27,10 @@ public class JavaAgent {
         System.out.println("==========================================================\r\n");
         AgentBuilder agentBuilder = new AgentBuilder.Default();
 
-        List<IPlugin> pluginGroup = PluginFactory.create(agentArgs);
-        for (IPlugin plugin : pluginGroup) {
+        plugins.add(new LinkPlugin(agentArgs));
+        plugins.add(new JvmPlugin(agentArgs));
+
+        for (IPlugin plugin : plugins) {
             InterceptPoint[] interceptPoints = plugin.buildInterceptPoint();
             for (InterceptPoint point : interceptPoints) {
 

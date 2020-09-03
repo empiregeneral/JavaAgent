@@ -4,7 +4,7 @@ import plugin.IPlugin;
 import plugin.InterceptPoint;
 import plugin.InterceptPointFactory;
 
-public class JvmPlugin implements IPlugin {
+public class JvmPlugin  implements IPlugin {
     private String agentArgs;
 
     public JvmPlugin(String agentArgs) {
@@ -28,5 +28,7 @@ public class JvmPlugin implements IPlugin {
     public Class adviceClass() {
         return JvmAdvice.class;
     }
+
+
 
 }
