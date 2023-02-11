@@ -21,7 +21,7 @@ name: PS MarkSweep       count:0         took:0  pool name:[PS Eden Space, PS Su
 
 链路追踪(MQ)：c09dcd8b-78e8-47f1-99a6-f394975e9dbf cn.pintia.zjo.practice.problem1146.Main.main 耗时：283ms
 
-其结果和[hdu judge](http://acm.hdu.edu.cn)、[zju judge](http://pintia.zju.cn)大致相当。
+其结果和[hdu judge](http://acm.hdu.edu.cn)、[zju judge](http://zoj.pintia.cn大致相当。
 
 
 

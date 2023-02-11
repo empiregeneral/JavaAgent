@@ -8,16 +8,16 @@ import java.util.Arrays;
 import java.util.List;
 
 public class JvmStack {
-    private static final long KB = 1024L;
+    private static final long MB = 1024L * 1024L;
 
     public static void printMemoryInfo() {
         MemoryMXBean memory = ManagementFactory.getMemoryMXBean();
         MemoryUsage headMemory = memory.getHeapMemoryUsage();
 
         String info = String.format("\ninit: %s\t max: %s\t used: %s\t committed: %s\t use rate: %s\n",
-                headMemory.getInit() / KB + "KB",
-                headMemory.getMax() / KB + "KB", headMemory.getUsed() / KB + "KB",
-                headMemory.getCommitted() / KB + "KB",
+                headMemory.getInit() / MB + " MB",
+                headMemory.getMax() / MB + " MB", headMemory.getUsed() / MB + " MB",
+                headMemory.getCommitted() / MB + " MB",
                 headMemory.getUsed() * 100 / headMemory.getCommitted() + "%"
 
         );
@@ -27,9 +27,9 @@ public class JvmStack {
         MemoryUsage nonheadMemory = memory.getNonHeapMemoryUsage();
 
         info = String.format("init: %s\t max: %s\t used: %s\t committed: %s\t use rate: %s\n",
-                nonheadMemory.getInit() / KB + "KB",
-                nonheadMemory.getMax() / KB + "KB", nonheadMemory.getUsed() / KB + "KB",
-                nonheadMemory.getCommitted() / KB + "KB",
+                nonheadMemory.getInit() / MB + " MB",
+                nonheadMemory.getMax() / MB + " MB", nonheadMemory.getUsed() / MB + " MB",
+                nonheadMemory.getCommitted() / MB + " MB",
                 nonheadMemory.getUsed() * 100 / nonheadMemory.getCommitted() + "%"
 
         );
